@@ -28,5 +28,8 @@ These are the files you have to modify:
 All you have to do, is simply click the 'Start.vbs' file.<br>It is running on your network! I love damaging my brain!!!<br>
 It will run on your current computer's IP address, with the port number 5000 (you can change this at the end of 'Litter.py')
 
+## 4. (Optional) Schedule Task
+After multiple testing, the best solution is to setup the 'Start.vbs' on the 'Log On' trigger in the Task Scheduler.
+
 > [!NOTE]
 > Everything is mocked. Nothing is real. Not a single interaction with the posts get saved. This is like a nicotine patch. You should only imagine the dopamine hit, not actually feel it.
