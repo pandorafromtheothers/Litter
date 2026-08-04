@@ -1,0 +1,334 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0f172a;
+  color: rgb(231, 233, 234);
+  --heart: 249, 24, 128;
+  --comment: 29, 155, 240;
+  --retweet: 0, 186, 124;
+  --stats: rgb(113, 118, 123);
+  --info: rgba(0, 0, 0, 0); /* rgba(15, 23, 42, 0.75); */
+  --greyedout: #8f8f8f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: black;
+  background-image: url(lv_seamless.png);
+  background-size: 750px;
+  background-blend-mode: hard-light;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  align-content: start;
+  justify-content: center;
+}
+
+.sidebar {
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem 0 0.5rem 0rem;
+  background: var(--info);
+}
+
+.sidebar h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar p {
+  line-height: 1.5;
+  color: #94a3b8;
+}
+
+.upload-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 18px 18px 0 0;
+}
+
+.upload-card input {
+  color: white;
+}
+
+.upload-card button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1rem;
+  background: #ffffff;
+  color: #082f49;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.chapter-picker {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem 0.4rem;
+  border-radius: 18px;
+  background: var(--info);
+}
+
+.chapter-picker label {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.chapter-picker select {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 0.85rem 1rem;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.flash-list {
+  padding: 0;
+  margin-top: 1rem;
+  list-style: none;
+  color: #fda4af;
+}
+
+.feed {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.2rem 0.4rem 1.2rem;
+  border-radius: 0px 0px 20px 20px;
+  background: var(--info);
+  margin-bottom: 1rem;
+}
+
+.hero-avatar,
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-image: url("img/profilepic.jpg");
+  background-size: cover;
+  font-weight: 700;
+  margin-right: 8px;
+  transition: all .3s ease;
+}
+.avatar:hover {
+  width: 45px;
+  height: 45px;
+}
+
+.tweet-card {
+  display: flex;
+  padding: 12px 16px 12px 16px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tweet-header {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.handle {
+  color: var(--stats);
+  font-size: 0.95rem;
+  margin-left: 4px;
+  transition: all .3s ease;
+}
+.handle:hover {
+  color: rgb(255,255,255,0.6);
+}
+
+.tweet-body {
+  font-weight: 400;
+  line-height: 20px;
+  font-size: 15px;
+  margin: 0px;
+  margin-bottom: 0.8rem;
+}
+
+.tweet-stats {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  color: var(--stats);
+  justify-content: space-between;
+  width: 100%;
+}
+
+.tweet-stat-individual {
+  fill: rgb(113, 118, 123);
+  height: 18.75px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.tweet-stat-flex {
+  display: flex;
+  font-size: 13px;
+  gap: 3px;
+  align-items: center;
+  cursor: pointer;
+  flex: 1 1 0%;
+  justify-content: flex-start;
+  transition: all .3s ease;
+}
+
+.tweet-stat-flex-end {
+  display: flex;
+  font-size: 13px;
+  gap: 3px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tweeter-name {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 2px;
+}
+
+.empty-state {
+  padding: 2rem;
+  text-align: center;
+  border-radius: 20px;
+  background: var(--info);
+  color: var(--greyedout);
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.75);
+  color: var(--greyedout);
+  margin: 1rem 0 1rem 0;
+}
+
+.pager a {
+  color: #009dda;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 7px 1px 7px 1px;
+  transition: all .3s ease;
+}
+.pager a:hover {
+  background-color: rgba(28, 30, 84, 0.5);
+  border-radius: 9999px;
+}
+.prompt-label{
+  align-self: center;
+  color: var(--greyedout);
+}
+
+.tweet-stat-flex:hover .empty-heart {
+  fill: rgb(var(--heart));
+  background: rgba(var(--heart), 0.4);
+  border-radius: 10px;
+  padding: 1px;
+  color: rgb(var(--heart));
+}
+
+.tweet-stat-flex.empty-heart:hover {
+  color: rgb(var(--heart));
+}
+
+.heart-checked {
+  display: block;
+  fill: rgb(var(--heart));
+}
+
+.heart-text-color {
+  color: rgb(var(--heart));
+}
+
+
+.tweet-stat-flex:hover .comments {
+  fill: rgb(var(--comment));
+  background: rgba(var(--comment), 0.4);
+  border-radius: 10px;
+  padding: 1px;
+}
+
+.tweet-stat-flex.comments:hover {
+  color: rgb(var(--comment));
+}
+
+.tweet-stat-flex-end:hover .comments {
+  fill: rgb(var(--comment));
+  background: rgba(var(--comment), 0.4);
+  border-radius: 10px;
+  padding: 1px;
+}
+
+.tweet-stat-flex-end.comments:hover {
+  color: rgb(var(--comment));
+}
+
+.tweet-stat-flex:hover .retweets {
+  fill: rgb(var(--retweet));
+  background: rgba(var(--retweet), 0.4);
+  border-radius: 10px;
+  padding: 1px;
+}
+
+.tweet-stat-flex.retweets:hover {
+  color: rgb(var(--retweet));
+}
+
+.retweet-glow {
+  fill: rgb(var(--retweet));
+  color: rgb(var(--retweet));
+  ;
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 1920px) {
+  .app-shell {
+    margin-left: -115px;
+  }
+
+  .side2 {
+    display: block;
+  }
+}
+
+@media (max-width: 1040px) {
+  .app-shell {
+    margin-left: 0px;
+  }
+
+  .side2 {
+    display: none;
+  }
+}
