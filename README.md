@@ -2,7 +2,7 @@
 > [!CAUTION]
 > This app should be considered a war-crime against the human psyche. Protect yourself.
 
-Are you complaining about doomscrolling while actively participating in it? Don't you THINK you should spend your time reading something less embarrassing than Xitter? \
+Are you complaining about doomscrolling while actively participating in it?<br>Don't you THINK you should spend your time reading something less embarrassing than Xitter? \
 Well...Let me introduce you to...
 
 <div align="center">
