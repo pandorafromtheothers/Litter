@@ -1,4 +1,3 @@
-# Litter
 > [!CAUTION]
 > This app should be considered a war-crime against the human psyche. Protect yourself.
 
