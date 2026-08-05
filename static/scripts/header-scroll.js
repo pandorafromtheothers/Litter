@@ -17,30 +17,28 @@ function HideElement(key, className){
 document.addEventListener("scroll", () => {
     if(window.innerWidth >= 600)
         return;
-    let _header;
-    let _downStateChanged = currentState;
-    if (lastKnownScrollPosition < window.scrollY)
-        currentState = states.up;
-    else
-        currentState = states.down;
+    let _lastState = currentState;
 
+    currentState = lastKnownScrollPosition < window.scrollY ?  states.up : states.down;
     lastKnownScrollPosition = window.scrollY;
-    if (_downStateChanged != currentState)
+
+    if (_lastState != currentState)
         scrollAnchor = lastKnownScrollPosition;
 
     //console.log({ anchor: scrollAnchor, lastknown: lastKnownScrollPosition, state: currentState });
+    
     if (scrollAnchor - lastKnownScrollPosition >= triggerPoint) {
-        //show elements
         if (shown)
             return;
+
         ShowElement(".header", "header-hide");
         ShowElement(".mock-sidemenu", "bottom-nav-hide");
         shown = true;
     }
     if (lastKnownScrollPosition - scrollAnchor >= triggerPoint) {
-        //hide elements
         if (!shown)
             return;
+
         HideElement(".header", "header-hide");
         HideElement(".mock-sidemenu", "bottom-nav-hide");
         shown = false;
