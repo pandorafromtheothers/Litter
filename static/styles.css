@@ -249,7 +249,6 @@ body {
   fill: rgb(var(--heart));
   background: rgba(var(--heart), 0.4);
   border-radius: 10px;
-  padding: 1px;
 }
 .tweet-stat-flex.empty-heart:hover{
   color: rgb(var(--heart));
@@ -264,7 +263,6 @@ body {
   fill: rgb(var(--comment));
   background: rgba(var(--comment), 0.4);
   border-radius: 10px;
-  padding: 1px;
 }
 .tweet-stat-flex.comments:hover, .tweet-stat-flex-end.comments:hover {
   color: rgb(var(--comment));
@@ -274,7 +272,6 @@ body {
   fill: rgb(var(--retweet));
   background: rgba(var(--retweet), 0.4);
   border-radius: 10px;
-  padding: 1px;
 }
 .tweet-stat-flex.retweets:hover {
   color: rgb(var(--retweet));
