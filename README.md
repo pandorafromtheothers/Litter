@@ -9,7 +9,7 @@ Well...Let me introduce you to...
     <h1>Litter<br>The EPUB reader with a Twitter layout.</h1>
 </div>
 
-https://github.com/user-attachments/assets/35a1f0ca-b1de-482a-913c-97212ce4e5a3
+https://github.com/user-attachments/assets/1dbcc41a-919e-4b5d-9fd2-46f68164dbcc
 
 # How to run
 ## 1. Requirements
