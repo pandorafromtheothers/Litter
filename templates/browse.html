@@ -5,7 +5,9 @@
     <div class="content-padding non-visible"></div>
     {% for book in books %}
         <a href="/?filename={{book}}">
-            <article class="tweet-header"><div class="tweet-card"><p class="tweet-body word-break">{{ book }}</p></div></article>
+                <div class="tweet-card">
+                    <p class="tweet-body word-break">{{ book }}</p>
+                </div>
         </a>
     {% endfor %}
 </main>

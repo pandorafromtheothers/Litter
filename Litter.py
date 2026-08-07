@@ -13,16 +13,16 @@ os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 @app.route("/", methods=["GET"])
 def index():
     filename = request.args.get("filename")
-    return home.index(filename)
+    return home.Home().index(filename)
 
 @app.route("/upload", methods=["POST"])
 def upload():
-    return home.upload()
+    return home.Home().upload()
 
 #region Browse
 @app.route("/browse", methods=["GET", "POST"])
 def book_search():
-    return browse.index()
+    return browse.Browse().index()
 #endregion
 
 

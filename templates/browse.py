@@ -1,11 +1,17 @@
 import os
 import Litter
-from flask import render_template
+from service import navigation
 
-def index():
-    result = []
-    imported_books = os.listdir(Litter.app.config["UPLOAD_FOLDER"]);
-    for book in imported_books:
-        result.append(str(book).replace(".json", ""))
+#region Views
+class Browse:
+    def __init__(self):
+        navigation.set_active("Explore")
 
-    return render_template("browse.html", books=result)
+    def index(self):
+        result = []
+        imported_books = os.listdir(Litter.app.config["UPLOAD_FOLDER"]);
+        for book in imported_books:
+            result.append(str(book).replace(".json", ""))
+
+        return navigation.render("browse.html", books=result)
+#endregion

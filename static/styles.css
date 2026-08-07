@@ -22,7 +22,7 @@ html{
 }
 
 a{
-  width: 100%;
+  display: contents;
   text-decoration: none;
   color: white;
   -webkit-tap-highlight-color: transparent;
@@ -237,7 +237,7 @@ body {
   text-decoration: none;
   padding: 7px 1px 7px 1px;
   transition: all .3s ease;
-  width: unset;
+  display: block;
 }
 .pager a:hover {
   background-color: rgba(28, 30, 84, 0.5);
@@ -316,9 +316,6 @@ body {
 }
 .header-logo {
   align-self: center;
-}
-.header-logo>a {
-  width: unset;
 }
 .header-item {
   width: 100%;
@@ -420,7 +417,7 @@ body {
   display: flex;
   justify-content: flex-end;
 }
-.sidemenu-item, .sidemenu-item > a {
+.sidemenu-item{
   font-size: 20px;
   line-height: 24px;
   padding: 12px;
@@ -434,9 +431,8 @@ body {
 .sidemenu-item.post-btn-w{
   width: unset;
 }
-.sidemenu-item > a{
-  padding: 0px;
-  width: unset;
+.nav-active{
+  font-weight: 700;
 }
 .sidemenu-item>svg, .sidemenu-item>a>svg {
   fill: white;
@@ -445,6 +441,9 @@ body {
 }
 .sidemenu-item:hover {
   background: rgb(231,233,234, 0.1);
+}
+.sidemenu-item:has(.post-btn):hover{
+  background: unset;
 }
 .post-btn {
   justify-content: center;
@@ -456,6 +455,9 @@ body {
   font-weight: 700;
   width: 100%;
   text-align: center;
+}
+.post-btn:hover {
+  background: rgb(215 219 220);
 }
 .post-btn>svg {
   display: none;
@@ -512,7 +514,7 @@ body {
   justify-content: center;
   width: unset;
 }
-.sidemenu-item>svg, .sidemenu-item>a>svg {
+.sidemenu-item>svg {
   margin: unset;
 }
 .post-btn {
@@ -556,23 +558,23 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   background: black;
 }
-.mock-sidemenu>div:nth-child(1), .mock-sidemenu>div:nth-child(7),.mock-sidemenu>div:nth-child(8),.mock-sidemenu>div:nth-child(9),.mock-sidemenu>div:nth-child(10),.mock-sidemenu>div:nth-child(11),.mock-sidemenu>div:nth-child(12){
+.mock-sidemenu>a:nth-child(1)>div, .mock-sidemenu>a:nth-child(7)>div,.mock-sidemenu>a:nth-child(8)>div,.mock-sidemenu>a:nth-child(9)>div,.mock-sidemenu>a:nth-child(10)>div,.mock-sidemenu>a:nth-child(11)>div,.mock-sidemenu>a:nth-child(12)>div{
   display: none;
 }
 
-.mock-sidemenu>div:nth-child(2){
+.mock-sidemenu>a:nth-child(2)>div{
   order: 1;
 }
-.mock-sidemenu>div:nth-child(3){
+.mock-sidemenu>a:nth-child(3)>div{
   order: 2;
 }
-.mock-sidemenu>div:nth-child(6){
+.mock-sidemenu>a:nth-child(6)>div{
   order: 3;
 }
-.mock-sidemenu>div:nth-child(4){
+.mock-sidemenu>a:nth-child(4)>div{
   order: 4;
 }
-.mock-sidemenu>div:nth-child(5){
+.mock-sidemenu>a:nth-child(5)>div{
   order: 5;
 }
 }
