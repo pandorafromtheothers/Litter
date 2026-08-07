@@ -1,23 +1,94 @@
-<!doctype html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Litter</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
-  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
+{% block content %}
+<main class="feed">
+      <form method="post" action="upload" enctype="multipart/form-data" class="upload-card">
+        <label for="book" class="prompt-label">Choose a book</label>
+        <input id="book" name="book" type="file" accept=".epub,.mobi" required />
+        <button type="submit">Render timeline</button>
+      </form>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul class="flash-list">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+      {% if title %}
+      <section class="hero">
+        <div class="avatar"></div>
+        <div>
+          <h2>{{ title }}</h2>
+          <p>by {{ author }}</p>
+        </div>
+      </section>
+      {% endif %}
 
-<body>
-  <div class="app-shell">
-    {% include "components/header.html" %}
-    {% include "components/left-side.html" %}
-    {% include "components/main.html" %}
-    <div class="mock-container"></div>
-  </div>
-  <script src="static/scripts/interactions.js"></script>
-  <script src="static/scripts/header-scroll.js"></script>
-</body>
+      {% if chapters %}
+      <form method="get" class="chapter-picker">
+        <input type="hidden" name="page" value="1" />
+        <label for="chapter">Chapter</label>
+        <select id="chapter" name="chapter" onchange="this.form.submit()">
+          {% for chapter in chapters %}
+          <option value="{{ chapter.id }}" {% if chapter.id==selected_chapter_id %}selected{% endif %}>
+            {{ chapter.title }}
+          </option>
+          {% endfor %}
+        </select>
+      </form>
+      {% endif %}
 
-</html>
+      {% if posts %}
+      {% include "components/pager.html" %}
+      <div id="#top"></div>
+      {% for post in posts %}
+      <article class="tweet-card">
+        <div class="avatar"></div>
+        <div class="tweet-header">
+          <div class="tweeter-name">
+            <div class="name">{{ author }}</div>
+            <div class="handle">@{{ (author).replace(' ', '').lower() }}</div>
+            <div class="handle">·</div>
+            <div class="handle">6h</div>
+          </div>
+          <p class="tweet-body">{{ post.text }}</p>
+          <div class="tweet-stats">
+            <span class="tweet-stat-flex comments">
+              <!-- comments -->
+              {% include "icons/comments.html" %}
+            </span>
+            <span class="tweet-stat-flex retweets">
+              <!-- retweets -->
+              <input hidden type="checkbox">
+              {% include "icons/retweets.html" %}
+            </span>
+            <span class="tweet-stat-flex empty-heart">
+              <!-- likes -->
+              <input hidden type="checkbox">
+              {% include "icons/likes.html" %}
+            </span>
+            <span class="tweet-stat-flex comments">
+              {% include "icons/views.html" %}
+            </span>
+            <span class="tweet-stat-flex-end comments">
+              {% include "icons/bookmark.html" %}
+            </span>
+            <span class="tweet-stat-flex-end comments">
+              {% include "icons/share.html" %}
+            </span>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+      {% include "components/pager.html" %}
+      <div class="bottom-pad"></div>
+      {% else %}
+      <section class="empty-state">
+        <h3>No book loaded yet</h3>
+        <p>Upload a book to start using Litter.</p>
+      </section>
+      {% endif %}
+    </main>
+{% endblock %}

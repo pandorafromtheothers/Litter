@@ -4,15 +4,17 @@
           <img title="logo" class="header-img sidemenu-logo" src="{{ url_for('static', filename='logo.png') }}">
         </div>
         <div class="sidemenu-item">
-          <a href="#top">
+          <a href="/#top">
             {% include "icons/home.html" %}
             <div>Home</div>
           </a>
-        </div>
-        <div class="sidemenu-item">
-          {% include "icons/search.html" %}
-          <div>Explore</div>
-        </div>
+          </div>
+          <div class="sidemenu-item">
+            <a href="browse">
+              {% include "icons/search.html" %}
+              <div>Explore</div>
+            </a>
+          </div>
         <div class="sidemenu-item">
           {% include "icons/bell.html" %}
           <div>Notifications</div>

@@ -61,6 +61,7 @@ class Book:
 
         self.chapters = build_chapters(book_epub, item_starts, len(self.posts))
         return self
+    
     def convert_mobi_to_epub(self, path: str):
         calibre = shutil.which("ebook-convert")
         if not calibre:
@@ -72,6 +73,7 @@ class Book:
 
         if process_result.returncode != 0:
             raise RuntimeError(f"Calibre conversion failed: {process_result.stderr or process_result.stdout}")
+        os.remove(path) #remove .mobi file
 
         return epub_path
     
@@ -250,4 +252,5 @@ def parse_book(path: str):
             raise RuntimeError("Only .epub and .mobi files are supported.")
 
     book = book.get_epub_book(path)
+    os.remove(path) #remove epub file
     return book
