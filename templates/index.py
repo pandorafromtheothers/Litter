@@ -7,14 +7,17 @@ from flask import flash, redirect, render_template, request, session, url_for
 from werkzeug.utils import secure_filename
 import Litter
 
-def index():
+def index(filename):
     page = request.args.get("page", 1, type=int)
     chapter_id = request.args.get("chapter", 0, type=int)
     book = epub_parser.Book()
 
-    filename = session.get("filename", "")
+    if filename is None:
+        filename = session.get("filename", "")
+
     if filename:
         cached = load_posts_from_cache(filename)
+        session["filename"] = filename
         if cached:
             book.author = cached.get("author", "")
             book.title=cached.get("title", "")
@@ -35,7 +38,7 @@ def index():
         current_page=book.current_page,
         per_page = config.POST_PER_PAGE)
 
-def render():
+def upload():
     if request.method == "POST":
         uploaded_file = request.files.get("book")
         if not uploaded_file or uploaded_file.filename == "":
@@ -55,10 +58,11 @@ def render():
         save_posts_to_cache(filename, book)
         session["filename"] = filename
 
-        os.remove(destination)
         request.files = None
 
-    return redirect(url_for("index"))   
+    return redirect(url_for("index"))
+
+
 
 def paginate_posts(posts, page: int):
     page = max(1, page)

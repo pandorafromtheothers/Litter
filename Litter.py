@@ -1,8 +1,7 @@
 import os
 import config
-from templates import index as home
-from flask import Flask
-
+from templates import index as home, browse
+from flask import Flask,request
 
 app = Flask(__name__)
 app.secret_key = "epub-twitter-demo"
@@ -10,13 +9,21 @@ app.config["UPLOAD_FOLDER"] = os.path.join(os.path.dirname(__file__), "uploads")
 app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024
 os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
+#region index
 @app.route("/", methods=["GET"])
 def index():
-    return home.index()
+    filename = request.args.get("filename")
+    return home.index(filename)
 
-@app.route("/render", methods=["POST"])
-def render():
-    return home.render()
+@app.route("/upload", methods=["POST"])
+def upload():
+    return home.upload()
+
+#region Browse
+@app.route("/browse", methods=["GET", "POST"])
+def book_search():
+    return browse.index()
+#endregion
 
 
 if __name__ == "__main__":
