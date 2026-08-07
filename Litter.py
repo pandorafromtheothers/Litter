@@ -15,12 +15,16 @@ def index():
     filename = request.args.get("filename")
     return home.Home().index(filename)
 
-@app.route("/upload", methods=["POST"])
+@app.route("/upload", methods=["GET"])
 def upload():
     return home.Home().upload()
 
+@app.route("/upload-book", methods=["POST"])
+def uploadbook():
+    return home.Home().upload_book()
+
 #region Browse
-@app.route("/browse", methods=["GET", "POST"])
+@app.route("/browse", methods=["GET"])
 def book_search():
     return browse.Browse().index()
 #endregion

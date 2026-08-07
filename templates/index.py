@@ -45,6 +45,10 @@ class Home():
             per_page = config.POST_PER_PAGE)
 
     def upload(self):
+        return navigation.render("upload.html", header="Following")
+#endregion
+
+    def upload_book(self):
         if request.method == "POST":
             uploaded_file = request.files.get("book")
             if not uploaded_file or uploaded_file.filename == "":
@@ -67,7 +71,6 @@ class Home():
             request.files = None
 
         return redirect(url_for("index"))
-#endregion
 
 
 

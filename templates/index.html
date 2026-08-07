@@ -1,12 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<main class="feed">
-      <form method="post" action="upload" enctype="multipart/form-data" class="upload-card">
-        <label for="book" class="prompt-label">Choose a book</label>
-        <input id="book" name="book" type="file" accept=".epub,.mobi" required />
-        <button type="submit">Render timeline</button>
-      </form>
       {% with messages = get_flashed_messages() %}
       {% if messages %}
       <ul class="flash-list">
@@ -42,7 +36,6 @@
 
       {% if posts %}
       {% include "components/pager.html" %}
-      <div id="#top"></div>
       {% for post in posts %}
       <article class="tweet-card">
         <div class="avatar"></div>
@@ -90,5 +83,4 @@
         <p>Upload a book to start using Litter.</p>
       </section>
       {% endif %}
-    </main>
 {% endblock %}

@@ -11,9 +11,13 @@
 
 <body>
   <div class="app-shell">
+    <div id="#top"></div>
     {% include "components/header.html" %}
     {% include "components/left-side.html" %}
+    <main class="feed">  
+    <div class="content-padding non-visible"></div>
     {% block content %}{% endblock %}
+    </main>
     <div class="mock-container"></div>
   </div>
   <script src="static/scripts/interactions.js"></script>

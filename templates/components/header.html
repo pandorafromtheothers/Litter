@@ -1,21 +1,40 @@
 <div class="header feed">
-      <div class="header-logo">
-        <img title="logo" class="header-img profilepic" src="static/img/profilepic.jpg">
-        <a href="#top">
-          <img title="logo" class="header-img logo" src="{{ url_for('static', filename='logo.png') }}">
-        </a>
-        <div class="header-subscribe">Subscribe</div>
-      </div>
-      <div>
-        <div class="header-flex">
-          <a href="#top">
-            <div class="header-item header-selected">
-              <div class="header-selected-text">For you</div>
-              <div class="header-selected-bottom"></div>
-            </div>
-          </a>
-          <div class="header-item">Following</div>
-          <div class="header-plus">+</div>
+  <div class="header-logo">
+    <img title="logo" class="header-img profilepic" src="static/img/profilepic.jpg">
+    <a href="#top">
+      <img title="logo" class="header-img logo" src="{{ url_for('static', filename='logo.png') }}">
+    </a>
+    <div class="header-subscribe">Subscribe</div>
+  </div>
+  <div>
+    <div class="header-flex">
+      {% if header == "Following" %}
+      <a href="/#top">
+        <div class="header-item">
+          <div class="header-item">For you</div>
         </div>
-      </div>
+      </a>
+      <a href="/upload">
+        <div class="header-item header-selected">
+          <div class="header-selected-text">Following</div>
+          <div class="header-selected-bottom"></div>
+        </div>
+      </a>
+      {% else %}
+            <a href="/#top">
+        <div class="header-item header-selected">
+          <div class="header-selected-text">For you</div>
+          <div class="header-selected-bottom"></div>
+        </div>
+      </a>
+      <a href="/upload">
+        <div class="header-item">
+          <div class="header-item">Following</div>
+        </div>
+      </a>
+      {% endif %}
+
+      <div class="header-plus">+</div>
     </div>
+  </div>
+</div>
