@@ -1,5 +1,5 @@
 <main class="feed">
-      <form method="post" enctype="multipart/form-data" class="upload-card">
+      <form method="post" action="render" enctype="multipart/form-data" class="upload-card">
         <label for="book" class="prompt-label">Choose a book</label>
         <input id="book" name="book" type="file" accept=".epub,.mobi" required />
         <button type="submit">Render timeline</button>
@@ -18,7 +18,7 @@
         <div class="avatar"></div>
         <div>
           <h2>{{ title }}</h2>
-          <p>by {{ author or 'Unknown author' }}</p>
+          <p>by {{ author }}</p>
         </div>
       </section>
       {% endif %}
@@ -45,8 +45,8 @@
         <div class="avatar"></div>
         <div class="tweet-header">
           <div class="tweeter-name">
-            <div class="name">{{ author or 'Unknown author' }}</div>
-            <div class="handle">@{{ (author or 'unknown').replace(' ', '').lower() }}</div>
+            <div class="name">{{ author }}</div>
+            <div class="handle">@{{ (author).replace(' ', '').lower() }}</div>
             <div class="handle">·</div>
             <div class="handle">6h</div>
           </div>
