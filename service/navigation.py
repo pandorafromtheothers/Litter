@@ -7,6 +7,7 @@ nav = [
     {"href":"browse", "icon":"icons/search.html", "name":"Explore", "active": False},
     {"href":"", "icon":"icons/bell.html", "name":"Notifications", "active": False},
     {"href":"", "icon":"icons/chat.html", "name":"Chat", "active": False},
+    {"href":"", "icon":"icons/grok.html", "name":"Grok", "active": False},
     {"href":"", "icon":"icons/bookmark.html", "name":"Bookmarks", "active": False},
     {"href":"", "icon":"icons/studio.html", "name":"Creator Studio", "active": False},
     {"href":"", "icon":"icons/premium.html", "name":"Premium", "active": False},
