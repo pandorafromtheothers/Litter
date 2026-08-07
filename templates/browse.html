@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<main class="feed">
-    <div class="content-padding non-visible"></div>
     {% for book in books %}
         <a href="/?filename={{book}}">
                 <div class="tweet-card browse">
@@ -10,5 +8,4 @@
                 </div>
         </a>
     {% endfor %}
-</main>
 {% endblock %}

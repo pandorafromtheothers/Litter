@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" action="upload-book" enctype="multipart/form-data" class="upload-card">
+        <label for="book" class="prompt-label">Choose a book</label>
+        <input id="book" name="book" type="file" accept=".epub,.mobi" required />
+        <button type="submit">Render timeline</button>
+</form>
+{% endblock %}
